@@ -22,7 +22,7 @@ const Home = () => {
     <PageTransition className="home-page">
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-bg" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop)'}}></div>
+        <div className="hero-bg" style={{ backgroundImage: 'url(/2.png)' }}></div>
         <div className="hero-overlay"></div>
         <div className="hero-content container">
           <AnimatedText text="Experience Elevated Dining" delay={100} el="h1" animate={true} />
@@ -51,9 +51,9 @@ const Home = () => {
             </FadeIn>
           </div>
           <div className="intro-image-wrapper">
-            <ParallaxImage 
-              src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop" 
-              alt="Plated dish" 
+            <ParallaxImage
+              src="/1.png"
+              alt="Restaurant dining room"
               className="intro-image-container"
               speed={0.4}
               delay={200}
@@ -72,26 +72,26 @@ const Home = () => {
             </FadeIn>
           </div>
           <div className="gallery-grid">
-            <ParallaxImage 
-              delay={100} 
-              className="gallery-item lg" 
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop" 
-              alt="Restaurant Interior" 
-              speed={0.5} 
+            <ParallaxImage
+              delay={100}
+              className="gallery-item lg"
+              src="/3.png"
+              alt="Restaurant Interior"
+              speed={0.5}
             />
-            <ParallaxImage 
-              delay={300} 
-              className="gallery-item sm" 
-              src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=2070&auto=format&fit=crop" 
-              alt="Chef preparing" 
-              speed={0.3} 
+            <ParallaxImage
+              delay={300}
+              className="gallery-item sm"
+              src="/4.png"
+              alt="Chef preparing"
+              speed={0.3}
             />
-            <ParallaxImage 
-              delay={500} 
-              className="gallery-item sm" 
-              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop" 
-              alt="Table setting" 
-              speed={0.4} 
+            <ParallaxImage
+              delay={500}
+              className="gallery-item sm"
+              src="/5.png"
+              alt="Plated dish"
+              speed={0.4}
             />
           </div>
         </div>

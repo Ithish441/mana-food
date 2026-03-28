@@ -17,10 +17,10 @@ const ParallaxImage = ({ src, alt, className = '', imgClassName = '', speed = 0.
       ref={ref}
       className={`parallax-container ${className}`}
       style={{ overflow: 'hidden', position: 'relative', width: '100%', height: '100%' }}
-      initial={{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }}
-      whileInView={{ opacity: 1, clipPath: 'inset(0% 0 0 0)' }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: delay / 1000 }}
+      initial={{ opacity: 0, scale: 1.04 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: '-80px', amount: 0.05 }}
+      transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: delay / 1000 }}
     >
       <motion.img 
         src={src} 

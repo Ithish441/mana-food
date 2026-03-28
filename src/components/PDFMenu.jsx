@@ -53,10 +53,13 @@ const PDFMenu = ({ pdfUrl }) => {
   const calcSize = useCallback(() => {
     if (!wrapperRef.current) return;
     const w = wrapperRef.current.offsetWidth;
-    // Each page is half the wrapper, capped at 480px
-    const pageW = Math.min(Math.floor(w / 2) - 8, 480);
+    const isMobile = w < 600;
+    // Mobile: full width single page; Desktop: split two-page spread
+    const pageW = isMobile
+      ? Math.min(w - 16, 480)
+      : Math.min(Math.floor(w / 2) - 8, 480);
     const pageH = Math.floor(pageW * 1.414); // A4 ratio
-    setPageSize({ width: pageW, height: pageH });
+    setPageSize({ width: pageW, height: pageH, isMobile });
   }, []);
 
   useEffect(() => {
@@ -91,7 +94,7 @@ const PDFMenu = ({ pdfUrl }) => {
       {/* Book stage */}
       <div
         style={{
-          width: `${pageSize.width * 2}px`,
+          width: pageSize.isMobile ? `${pageSize.width}px` : `${pageSize.width * 2}px`,
           height: `${pageSize.height}px`,
           maxWidth: '100%',
           flexShrink: 0,
@@ -125,7 +128,7 @@ const PDFMenu = ({ pdfUrl }) => {
               showCover={true}
               drawShadow={true}
               flippingTime={700}
-              usePortrait={false}
+              usePortrait={!!pageSize.isMobile}
               startPage={0}
               autoSize={false}
               maxShadowOpacity={0.5}
@@ -171,7 +174,10 @@ const PDFMenu = ({ pdfUrl }) => {
           >‹</button>
 
           <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '0.9rem', color: '#5A5650', letterSpacing: '1px' }}>
-            {Math.min(currentPage + 1, numPages)} – {Math.min(currentPage + 2, numPages)} &nbsp;/&nbsp; {numPages}
+            {pageSize.isMobile
+              ? `${Math.min(currentPage + 1, numPages)} / ${numPages}`
+              : `${Math.min(currentPage + 1, numPages)} – ${Math.min(currentPage + 2, numPages)} \u00a0/\u00a0 ${numPages}`
+            }
           </span>
 
           <button

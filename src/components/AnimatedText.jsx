@@ -45,7 +45,7 @@ const AnimatedText = ({ text, className = '', el: Wrapper = 'p', delay = 0, just
         initial="hidden"
         {...(animateOnMount
           ? { animate: 'visible' }
-          : { whileInView: 'visible', viewport: { once: true, margin: '-50px' } }
+          : { whileInView: 'visible', viewport: { once: true, margin: '-80px', amount: 0.1 } }
         )}
         style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25em', justifyContent: justify }}
       >

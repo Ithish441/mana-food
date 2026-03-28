@@ -21,7 +21,7 @@ const About = () => {
         <div className="container philosophy-grid">
           <div className="philosophy-image-wrapper">
             <ParallaxImage 
-              src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=2070&auto=format&fit=crop" 
+              src="/4.png" 
               alt="Chef cooking" 
               speed={0.4}
               delay={200}

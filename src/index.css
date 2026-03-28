@@ -19,10 +19,16 @@
   --ease-smooth: cubic-bezier(0.65, 0, 0.05, 1);
 }
 
+html {
+  overflow-x: hidden;
+  scroll-behavior: auto; /* Let Lenis handle smooth scroll */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  outline: none;
 }
 
 body {
@@ -32,6 +38,7 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {

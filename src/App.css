@@ -250,6 +250,9 @@ main {
   aspect-ratio: 3/4;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  /* Explicit min-height ensures the parallax container (height:100%) has a baseline */
+  min-height: 420px;
+  position: relative;
 }
 
 .intro-image, .philosophy-image {
@@ -273,10 +276,10 @@ main {
   margin-top: 4rem;
 }
 .gallery-item {
-  overflow: hidden;
   border-radius: 12px;
   position: relative;
   box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+  /* overflow is handled by the inner parallax-container — removing it here fixes clip-path animation */
 }
 .gallery-item::after {
   content: '';
@@ -316,7 +319,7 @@ main {
 .cta-bg {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2070&auto=format&fit=crop');
+  background-image: url('/7.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -353,7 +356,7 @@ main {
 .page-header {
   padding: 220px 0 100px;
   background: var(--color-sand);
-  border-bottom: 1px solid var(--color-sand-dark);
+  border-bottom: none;
 }
 .page-header h1 {
   margin-bottom: 1rem;
@@ -509,6 +512,24 @@ main {
   font-size: 0.9rem;
   opacity: 0.5;
   letter-spacing: 1px;
+}
+.footer-credit {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+.footer-credit-link {
+  color: var(--color-terracotta);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.footer-credit-link:hover {
+  color: var(--color-warm-white);
+  border-color: var(--color-warm-white);
 }
 
 /* Responsive Design */

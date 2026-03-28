@@ -24,15 +24,10 @@ function ScrollToTop() {
 function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
+      lerp: 0.08,
+      smoothWheel: true,
+      syncTouch: false,
+      touchInertiaMultiplier: 2,
     });
 
     function raf(time) {
@@ -112,6 +107,17 @@ function Footer() {
       </div>
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} MANA FOOD. All rights reserved.</p>
+        <p className="footer-credit">
+          Project By{' '}
+          <a
+            href="https://wa.me/917207667827"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-credit-link"
+          >
+            ITHISH JONNES
+          </a>
+        </p>
       </div>
     </footer>
   );

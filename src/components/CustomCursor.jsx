@@ -62,7 +62,7 @@ const CustomCursor = () => {
       document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
       document.documentElement.removeEventListener('mouseenter', handleMouseEnter);
     };
-  }, [cursorX, cursorY, dotX, dotY, isVisible]);
+  }, [cursorX, cursorY, dotX, dotY]);
 
   // Don't render on touch devices
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
